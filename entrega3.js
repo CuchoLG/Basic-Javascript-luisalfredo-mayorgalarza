@@ -1,23 +1,17 @@
-const prompt = require("prompt-sync")();
+const prompt = require("prompt-sync")({siginit: true});
 
-let sumaTotal = 0;
+let numInput = prompt ("Introduce los numeros--> ")
+let suma = 0
 
-while (true) {
-    
-    const input = prompt("Ingresa un número o escribe 'cancelar' para salir: ");
-
-    if (input.toLowerCase() === "cancelar") {
-        break;
-    }
-
-    const numero = parseFloat(input);
-
-    if (!isNaN(numero)) {
-        sumaTotal += numero;
+while (numInput !== "cancelar"){ 
+    if (Number(numInput)) {
+        numeros = Number(numInput)
+        suma = (suma + numeros)
     } else {
-        
-        console.log("No entendido. Por favor, ingresa un número válido.");
+        console.log("Eso no son números" )         
     }
+
+    numInput = prompt("Introduce los numeros--> ")
 }
 
-console.log("La suma total de los números introducidos es: " + sumaTotal);
+console.log("Has cancelado el proceso, la suma es: " + suma);
